@@ -24,7 +24,6 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group|integer|null: false|
 |name|text|null: false|
 ### Association
 - has_many :messages
