@@ -1,0 +1,46 @@
+.wrapper
+  .sidebar
+    .sidebar__username
+      .topitems
+        .topitems__name test
+        .topitems__icons
+          = link_to "#", class: "topitems__icons__edit" do
+            = icon('far', 'edit', class: 'edit')
+          = link_to "#", class: "topitems__icons__cog" do
+            = icon('fas', 'cog', class: 'cog')
+    .groups
+      .groups__group1
+        .groups__group__groupname testgroup
+        .groups__group__new-message まだメッセージがありません
+      .groups__group2
+        .groups__group__groupname testgroup
+        .groups__group__new-message まだメッセージがありません
+  .chat-main
+    .chat-main__header
+      .chat-main__header__leftbox
+        .chat-main__header__leftbox__groupname group1
+        .chat-main__header__leftbox__memberlist Member: aaa bbb
+      .chat-main__header__edit-btn
+        = link_to '#', class: "deconone" do
+          Edit
+    .chat-main__messages
+      .chat-main__messages__message
+        .chat-main__messages__message__upperinfo
+          .chat-main__messages__message__upperinfo__writer aaa
+          .chat-main__messages__message__upperinfo__date 2020/05/15(Fri) 21:30:55
+        .chat-main__messages__message__text 勉強中
+      .chat-main__messages__message2
+        .chat-main__messages__message__upperinfo
+          .chat-main__messages__message__upperinfo__writer bbb
+          .chat-main__messages__message__upperinfo__date 2020/05/15(Fri) 21:30:55
+        .chat-main__messages__message__text 休憩中
+    .chat-main__form
+      %form.chat-main__form__new-message
+        .input-box
+          %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+          %label{class: "input-box__image"}
+            = icon('far', 'image')
+            %input{type: "file", class: "input-box__image__file"}
+        %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+          
+      
