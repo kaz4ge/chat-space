@@ -34,6 +34,7 @@
       a:active { color:#38aef0; text-decoration:none }
       .deconone {
         text-decoration: none;
+        color: #38aef0;
       }
     }
 
@@ -42,6 +43,7 @@
     background-color: #fafafa;
     height: calc(100vh - 100px - 90px);
     padding: 35px 40px;
+    overflow: scroll;
     &__message, &__message2 {
       width: 100%;
       margin-bottom: 46px;
@@ -70,18 +72,21 @@
     height: 90px;
     width: calc(100vw - 300px);
     padding: 20px 40px;
-    &__new-message {
-      line-height: 50px;
+    .new_message {
       display: flex;
+      width: 100%;
+      &__new-message {
+        width: 100%;
+        line-height: 50px;
+      }
       .input-box {
         position: relative;
-        width: 100%;
         &__text {
           height: 50px;
-          width: 100%;
-          padding: 0 40px 0 10px;
           color: #434a54;
           border-style: none;
+          position: absolute;
+          top: 15px;
         }
         &__image {
           position: absolute;
@@ -91,16 +96,16 @@
         &__image__file {
           display: none;
         }         
-      } 
-      .submit-btn {
-        background-color: #38aef0;
-        height: 50px;
-        width:100px;
-        padding: 0 30px;
-        margin-left: 15px;
-        color: $white;
-        text-decoration: none;
-      }        
+      }
     } 
+    .submit-btn {
+      background-color: #38aef0;
+      height: 50px;
+      width:100px;
+      padding: 0 30px;
+      margin-left: 15px;
+      color: $white;
+      text-decoration: none;
+    }        
   }
 }

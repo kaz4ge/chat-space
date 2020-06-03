@@ -1,27 +1,22 @@
 .chat-main
   .chat-main__header
     .chat-main__header__leftbox
-      .chat-main__header__leftbox__groupname group1
-      .chat-main__header__leftbox__memberlist Member: aaa bbb
+      .chat-main__header__leftbox__groupname
+        = @group.name
+      .chat-main__header__leftbox__memberlist
+        Member:
+        - @group.users.each do |user|
+          = user.name
     .chat-main__header__edit-btn
-      = link_to '#', class: "deconone" do
+      = link_to edit_group_path(@group), class: "deconone" do
         Edit
   .chat-main__messages
-    .chat-main__messages__message
-      .chat-main__messages__message__upperinfo
-        .chat-main__messages__message__upperinfo__writer aaa
-        .chat-main__messages__message__upperinfo__date 2020/05/15(Fri) 21:30:55
-      .chat-main__messages__message__text 勉強中
-    .chat-main__messages__message2
-      .chat-main__messages__message__upperinfo
-        .chat-main__messages__message__upperinfo__writer bbb
-        .chat-main__messages__message__upperinfo__date 2020/05/15(Fri) 21:30:55
-      .chat-main__messages__message__text 休憩中
+    = render @messages
   .chat-main__form
-    %form.chat-main__form__new-message
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'new_message__new-message', placeholder: 'type a message'
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon('far', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+        = f.label :image, class: 'input-box__text' do
+          = icon('far', 'image', class: 'input-box__image')
+          = f.file_field :image, class: 'input-box__image__file'
+      = f.submit 'Send', class: 'submit-btn'
